@@ -1,0 +1,25 @@
+﻿@model EShop.Models.ProductModel
+
+@{
+	ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+	<h4>Product</h4>
+	<hr />
+	<div class="thumbnail">
+		<a href="#">
+			<img src="@Model.Image" alt="Lights" class="img-thumbnail" />
+			<div class="caption">
+				<p>@Model.Name</p>
+				<p>@Model.Description</p>
+				<p>Quantity: <b>@Model.Quantity</b></p>
+			</div>
+		</a>
+	</div>
+</div>
+<p>
+	@Html.ActionLink("Back to List", "Details", "Customer", new { id = Model.CustomerId }, new { })
+</p>

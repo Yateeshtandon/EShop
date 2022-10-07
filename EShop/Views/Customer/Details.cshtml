@@ -1,0 +1,82 @@
+﻿@model EShop.Models.CustomerModel
+
+@{
+	ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+	<h4>CustomerModel</h4>
+	<hr />
+	<dl class="dl-horizontal">
+		<dt>
+			@Html.DisplayNameFor(model => model.CustomerId)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.CustomerId)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Name)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Name)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Email)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Email)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Mobile)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Mobile)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Gender)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Gender)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.AddressLine1)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.AddressLine1)
+		</dd>
+
+	</dl>
+</div>
+<p>
+	@Html.ActionLink("Edit", "Edit", new { id = Model.CustomerId }) |
+	@Html.ActionLink("Back to List", "Index")
+</p>
+
+<div class="row">
+	@foreach (var p in Model.Products)
+	{
+		<div class="col-md-4">
+			<div class="thumbnail">
+				<a href="@Url.Action("Details", "Products", new { id = p.ProductId, customerId = p.CustomerId })">
+					<img class="img-thumbnail" src="@p.Image" alt="@p.Name">
+					<div class="caption">
+						<p>@p.Name</p>
+					</div>
+				</a>
+			</div>
+		</div>
+	}
+</div>
